@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOBI Solutions - &#304;&#351;letmenizi Teknoloji ile B&#252;y&#252;t&#252;n</title>
+    <meta name="description" content="KOBI'ler i&#231;in CRM, muhasebe, bulut, e-ticaret ve pazarlama ara&#231;lar&#305;n&#305; pratik &#351;ekilde kar&#351;&#305;la&#351;t&#305;ran teknoloji rehberi.">
+    <meta name="theme-color" content="#2563eb">
+    <meta property="og:title" content="KOBI Solutions">
+    <meta property="og:description" content="K&#252;&#231;&#252;k i&#351;letmeler i&#231;in pratik teknoloji &#231;&#246;z&#252;mleri.">
+    <meta property="og:type" content="website">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a class="logo" href="#home" aria-label="KOBI Solutions ana sayfa">
+                <span class="logo-mark" aria-hidden="true">&#128200;</span>
+                <span>
+                    <strong>KOBI Solutions</strong>
+                    <small>Dan&#305;&#351;manl&#305;k & hizmet sekt&#246;r&#252; i&#231;in teknoloji rehberi</small>
+                </span>
+            </a>
+            <nav class="nav" aria-label="Ana men&#252;">
+                <ul>
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#blog">&#199;&#246;z&#252;mler</a></li>
+                    <li><a href="#about">Hakk&#305;nda</a></li>
+                    <li><a href="#contact">&#304;leti&#351;im</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <p class="eyebrow">KOBI teknoloji rehberi</p>
+            <h1>&#304;&#351;letmenizi teknoloji ile b&#252;y&#252;t&#252;n</h1>
+            <p>CRM, muhasebe, bulut, e-ticaret ve pazarlama ara&#231;lar&#305;n&#305; tek yerde, problem odakl&#305; ke&#351;fedin.</p>
+            <div class="hero-actions">
+                <a class="primary-link" href="#blog">&#199;&#246;z&#252;mleri incele</a>
+                <a class="secondary-link" href="#about">Nas&#305;l se&#231;iyoruz?</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="filters-section" id="blog">
+        <div class="container">
+            <div class="search-box">
+                <div class="search-field">
+                    <label for="searchInput" class="sr-only">&#199;&#246;z&#252;mlerde ara</label>
+                    <input type="text" id="searchInput" placeholder="CRM, muhasebe, e-ticaret..." aria-label="&#199;&#246;z&#252;mlerde ara">
+                </div>
+                <label class="sort-control" for="sortSelect">
+                    <span>S&#305;rala</span>
+                    <select id="sortSelect" aria-label="&#199;&#246;z&#252;mleri s&#305;rala">
+                        <option value="newest">En yeni</option>
+                        <option value="price-low">D&#252;&#351;&#252;k maliyet</option>
+                        <option value="starter">Ba&#351;lamas&#305; kolay</option>
+                        <option value="name">A-Z</option>
+                    </select>
+                </label>
+                <button id="searchBtn" aria-label="Arama yap">Ara</button>
+            </div>
+
+            <div aria-live="polite" aria-atomic="true" class="sr-only" id="filterAnnounce"></div>
+
+            <fieldset class="category-filters" aria-label="&#199;&#246;z&#252;m kategorileri">
+                <legend class="sr-only">Kategoriye g&#246;re filtrele</legend>
+                <button class="filter-btn active" data-category="all" aria-pressed="true">T&#252;m&#252;</button>
+                <button class="filter-btn" data-category="cloud" aria-pressed="false">Cloud & &#304;&#351;birli&#287;i</button>
+                <button class="filter-btn" data-category="crm" aria-pressed="false">CRM & M&#252;&#351;teri</button>
+                <button class="filter-btn" data-category="accounting" aria-pressed="false">Muhasebe</button>
+                <button class="filter-btn" data-category="ecommerce" aria-pressed="false">E-Ticaret</button>
+                <button class="filter-btn" data-category="marketing" aria-pressed="false">Pazarlama</button>
+                <button class="filter-btn" data-category="project" aria-pressed="false">Proje Y&#246;netimi</button>
+                <button class="filter-btn" data-category="hr" aria-pressed="false">HR & Bordro</button>
+                <button class="filter-btn" data-category="support" aria-pressed="false">&#304;leti&#351;im & Destek</button>
+            </fieldset>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container content-layout">
+            <section class="results-area" aria-labelledby="resultsTitle">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">Canl&#305; liste</p>
+                        <h2 id="resultsTitle">&#199;&#246;z&#252;m kartlar&#305;</h2>
+                    </div>
+                    <div class="heading-actions">
+                        <span id="resultCount" class="result-count">16 &#231;&#246;z&#252;m</span>
+                        <button class="ghost-button" type="button" id="clearFiltersBtn">Temizle</button>
+                    </div>
+                </div>
+                <div class="blog-grid" id="blogGrid" role="region" aria-live="polite" aria-label="&#199;&#246;z&#252;m kartlar&#305;"></div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="sidebar-box compare-box">
+                    <h3>K&#305;sa Listen</h3>
+                    <p class="sidebar-note">Favorilere ekledi&#287;in ara&#231;lar burada kal&#305;r.</p>
+                    <ul id="favoriteList"></ul>
+                    <div class="compare-actions">
+                        <button class="ghost-button" type="button" id="compareBtn">Kar&#351;&#305;la&#351;t&#305;r</button>
+                        <button class="ghost-button" type="button" id="shareListBtn">Link al</button>
+                    </div>
+                    <p class="share-status" id="shareStatus" aria-live="polite"></p>
+                </div>
+
+                <div class="sidebar-box">
+                    <h3>En Pop&#252;ler</h3>
+                    <ul id="trendingList"></ul>
+                </div>
+
+                <div class="sidebar-box">
+                    <h3>Kategoriler</h3>
+                    <ul id="categoryList"></ul>
+                </div>
+
+                <div class="sidebar-box newsletter">
+                    <h3>KOBI Rehberi</h3>
+                    <p>Haftal&#305;k teknoloji ipu&#231;lar&#305; ve ara&#231; &#246;nerileri.</p>
+                    <form id="newsletterForm" aria-label="Newsletter abone ol formu">
+                        <label for="newsletterEmail" class="sr-only">E-mail adresi</label>
+                        <input type="email" id="newsletterEmail" placeholder="E-mail adresin" required aria-required="true">
+                        <button type="submit" aria-label="Newsletter'a abone ol">Abone Ol</button>
+                    </form>
+                </div>
+
+                <div class="sidebar-box quick-tips">
+                    <h3>H&#305;zl&#305; Kontrol</h3>
+                    <ul>
+                        <li>&#214;nce problemi yaz, sonra ara&#231; se&#231;.</li>
+                        <li>&#220;cretsiz planla ba&#351;la, ekip b&#252;y&#252;d&#252;k&#231;e y&#252;ksel.</li>
+                        <li>Veri ta&#351;&#305;ma ve destek kalitesini kontrol et.</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <section class="about-band" id="about">
+        <div class="container">
+            <div>
+                <p class="eyebrow">Yakla&#351;&#305;m</p>
+                <h2>KOBI'ler i&#231;in sade karar rehberi</h2>
+            </div>
+            <p>KOBI Solutions, k&#252;&#231;&#252;k i&#351;letmelerin yaz&#305;l&#305;m se&#231;erken kaybolmamas&#305; i&#231;in ara&#231;lar&#305; problem, &#231;&#246;z&#252;m, fiyat ve ba&#351;lang&#305;&#231; kolayl&#305;&#287;&#305; ekseninde sunar.</p>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>KOBI Solutions</h4>
+                    <p>Dan&#305;&#351;manl&#305;k ve hizmet sekt&#246;r&#252;ndeki k&#252;&#231;&#252;k i&#351;letmeler i&#231;in pratik teknoloji &#246;nerileri.</p>
+                </div>
+                <div>
+                    <h4>&#304;leti&#351;im</h4>
+                    <p>info@kobi-solutions.com</p>
+                    <p>&#304;stanbul, T&#252;rkiye</p>
+                </div>
+                <div>
+                    <h4>Not</h4>
+                    <p>Baz&#305; ba&#287;lant&#305;lar affiliate link olabilir. Yay&#305;n &#246;ncesi fiyatlar&#305; resmi sitelerden do&#287;rulay&#305;n.</p>
+                    <p><a href="privacy.html">Gizlilik</a> · <a href="affiliate.html">Affiliate notu</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KOBI Solutions. T&#252;m haklar&#305; sakl&#305;d&#305;r.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="detailModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close-modal></div>
+        <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" type="button" data-close-modal aria-label="Detayi kapat">x</button>
+            <div id="modalContent"></div>
+        </section>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
