@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
-$publishScript = Join-Path $root "publish-github.ps1"
+$publishScript = Join-Path $PSScriptRoot "publish-github-batch.ps1"
 $checkScript = Join-Path $PSScriptRoot "check-live-site.ps1"
 
 Write-Host "JavaScript kontrolu yapiliyor..."
