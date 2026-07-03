@@ -19,6 +19,27 @@
     --shadow-lg: 0 18px 45px rgba(15, 23, 42, 0.18);
 }
 
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes softPulse {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -116,14 +137,34 @@ select {
     color: var(--primary-color);
 }
 
+.nav a[aria-current="page"] {
+    color: var(--primary-color);
+}
+
 .hero {
-    background: linear-gradient(135deg, #12306f, #2563eb 55%, #0f766e);
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(9, 23, 54, 0.92), rgba(23, 32, 51, 0.72) 48%, rgba(15, 118, 110, 0.32)),
+        url("assets/kobirotasi-hero.png") center right / cover no-repeat;
     color: var(--white);
     padding: 4.2rem 0 4.6rem;
 }
 
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 70px;
+    background: linear-gradient(0deg, var(--white), rgba(255, 255, 255, 0));
+    opacity: 0.92;
+}
+
 .hero .container {
+    position: relative;
+    z-index: 1;
     max-width: 920px;
+    animation: fadeUp 0.7s ease both;
 }
 
 .eyebrow {
@@ -171,6 +212,15 @@ select {
     border-radius: 8px;
     padding: 0.85rem;
     background: rgba(255, 255, 255, 0.09);
+    animation: fadeUp 0.7s ease both;
+}
+
+.hero-metrics div:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.hero-metrics div:nth-child(3) {
+    animation-delay: 0.16s;
 }
 
 .hero-metrics dt {
@@ -253,6 +303,15 @@ select {
     border-radius: 8px;
     background: #fbfdff;
     padding: 1rem;
+    animation: fadeUp 0.6s ease both;
+}
+
+.route-card:nth-child(2) {
+    animation-delay: 0.07s;
+}
+
+.route-card:nth-child(3) {
+    animation-delay: 0.14s;
 }
 
 .route-step {
@@ -275,6 +334,26 @@ select {
 .route-card p {
     color: var(--muted);
     font-size: 0.92rem;
+}
+
+.route-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    align-items: center;
+    margin-top: 1.2rem;
+}
+
+.secondary-text-link,
+.text-link {
+    color: var(--primary-dark);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.secondary-text-link:hover,
+.text-link:hover {
+    text-decoration: underline;
 }
 
 .search-box {
@@ -735,6 +814,198 @@ button:disabled {
     color: var(--muted);
 }
 
+.subpage-hero {
+    color: var(--white);
+    background:
+        linear-gradient(90deg, rgba(9, 23, 54, 0.94), rgba(37, 99, 235, 0.72)),
+        url("assets/kobirotasi-hero.png") center / cover no-repeat;
+    padding: 4rem 0;
+}
+
+.subpage-hero .container {
+    max-width: 860px;
+    animation: fadeUp 0.65s ease both;
+}
+
+.subpage-hero h1 {
+    max-width: 780px;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    line-height: 1.08;
+    margin-bottom: 1rem;
+}
+
+.subpage-hero p {
+    max-width: 680px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.06rem;
+}
+
+.guide-library,
+.tool-page,
+.method-section,
+.timeline-section {
+    padding: 2.4rem 0;
+}
+
+.guide-grid,
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.guide-card,
+.method-grid article,
+.assessment-panel,
+.assessment-result {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.guide-card {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    animation: fadeUp 0.55s ease both;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.guide-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--soft-blue);
+    font-size: 1.35rem;
+    animation: softPulse 4s ease-in-out infinite;
+}
+
+.guide-card h2 {
+    font-size: 1.06rem;
+    line-height: 1.3;
+}
+
+.guide-card p,
+.guide-card li,
+.method-grid p,
+.assessment-result p,
+.assessment-result li {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.guide-card ul,
+.result-list {
+    display: grid;
+    gap: 0.45rem;
+    padding-left: 1.1rem;
+}
+
+.guide-card .text-link,
+.guide-card .primary-link {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.highlight-guide {
+    background: linear-gradient(135deg, #eff6ff, #ecfdf5);
+}
+
+.tool-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: 1.2rem;
+    align-items: start;
+}
+
+.assessment-panel,
+.assessment-result,
+.method-grid article {
+    padding: 1.1rem;
+}
+
+.assessment-panel {
+    display: grid;
+    gap: 1rem;
+}
+
+.assessment-panel fieldset {
+    display: grid;
+    gap: 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.assessment-panel legend {
+    padding: 0 0.35rem;
+    font-weight: 900;
+}
+
+.assessment-panel label {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    color: var(--muted);
+}
+
+.assessment-submit {
+    width: max-content;
+}
+
+.assessment-result {
+    position: sticky;
+    top: 94px;
+}
+
+.assessment-result h2 {
+    margin-bottom: 0.65rem;
+}
+
+.assessment-result .primary-link {
+    margin-top: 1rem;
+}
+
+.method-grid article {
+    animation: fadeUp 0.55s ease both;
+}
+
+.method-grid h2 {
+    font-size: 1.08rem;
+    margin-bottom: 0.55rem;
+}
+
+.timeline-section {
+    background: var(--white);
+    border-top: 1px solid var(--line);
+}
+
+.timeline {
+    display: grid;
+    gap: 0.85rem;
+    max-width: 850px;
+    margin-top: 1rem;
+    list-style: none;
+}
+
+.timeline li {
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    background: #fbfdff;
+    color: var(--muted);
+    padding: 0.9rem 1rem;
+}
+
 .footer {
     background: #111827;
     color: var(--white);
@@ -906,6 +1177,7 @@ a:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
     * {
+        animation: none !important;
         scroll-behavior: auto !important;
         transition: none !important;
     }
@@ -926,7 +1198,10 @@ a:focus-visible {
     .modal-grid,
     .pros-cons,
     .route-grid,
-    .consult-layout {
+    .consult-layout,
+    .guide-grid,
+    .method-grid,
+    .tool-layout {
         grid-template-columns: 1fr;
     }
 
@@ -941,6 +1216,10 @@ a:focus-visible {
 
     .consult-layout .primary-link {
         justify-self: start;
+    }
+
+    .assessment-result {
+        position: static;
     }
 }
 
@@ -959,6 +1238,16 @@ a:focus-visible {
 
     .hero-metrics {
         grid-template-columns: 1fr;
+    }
+
+    .route-cta,
+    .assessment-submit {
+        width: 100%;
+    }
+
+    .route-cta .primary-link,
+    .assessment-submit {
+        justify-content: center;
     }
 
     .post-footer {

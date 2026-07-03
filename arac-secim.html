@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ara&#231; Se&#231;im Testi - KOB&#304; Rotas&#305;</title>
+    <meta name="description" content="KOB&#304; i&#351;letmeniz i&#231;in hangi teknoloji kategorisinden ba&#351;laman&#305;z gerekti&#287;ini bulun.">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a class="logo" href="index.html" aria-label="KOB&#304; Rotas&#305; ana sayfa">
+                <span class="logo-mark" aria-hidden="true">&#128200;</span>
+                <span><strong>KOB&#304; Rotas&#305;</strong><small>Teknoloji karar rehberi</small></span>
+            </a>
+            <nav class="nav" aria-label="Ana men&#252;">
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="rehberler.html">Rehberler</a></li>
+                    <li><a href="arac-secim.html" aria-current="page">Ara&#231; Testi</a></li>
+                    <li><a href="hakkinda.html">Hakk&#305;nda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="subpage-hero">
+            <div class="container">
+                <p class="eyebrow">3 dakikal&#305;k test</p>
+                <h1>Hangi yaz&#305;l&#305;m kategorisinden ba&#351;lamal&#305;s&#305;n?</h1>
+                <p>En b&#252;y&#252;k operasyon sorununu se&#231;, mevcut durumunu i&#351;aretle ve sana uygun ilk rotay&#305; al.</p>
+            </div>
+        </section>
+
+        <section class="tool-page">
+            <div class="container tool-layout">
+                <form class="assessment-panel" id="assessmentForm">
+                    <fieldset>
+                        <legend>1. En acil problem hangisi?</legend>
+                        <label><input type="radio" name="problem" value="crm" required> M&#252;&#351;teri ve sat&#305;&#351; takibi da&#287;&#305;n&#305;k</label>
+                        <label><input type="radio" name="problem" value="accounting"> Fatura, gider ve raporlar ge&#231; haz&#305;rlan&#305;yor</label>
+                        <label><input type="radio" name="problem" value="marketing"> D&#252;zenli pazarlama ve takip yap&#305;lam&#305;yor</label>
+                        <label><input type="radio" name="problem" value="support"> M&#252;&#351;teri destek talepleri kanallara da&#287;&#305;l&#305;yor</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>2. Ekip b&#252;y&#252;kl&#252;&#287;&#252;n nedir?</legend>
+                        <label><input type="radio" name="team" value="starter" required> 1-3 ki&#351;i, yeni ba&#351;l&#305;yoruz</label>
+                        <label><input type="radio" name="team" value="growing"> 4-10 ki&#351;i, s&#252;re&#231;ler oturmal&#305;</label>
+                        <label><input type="radio" name="team" value="scale"> 10+ ki&#351;i, raporlama ve yetki laz&#305;m</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>3. Ba&#351;lang&#305;&#231; tercihin?</legend>
+                        <label><input type="radio" name="budget" value="free" required> &#220;cretsiz veya d&#252;&#351;&#252;k maliyet</label>
+                        <label><input type="radio" name="budget" value="balanced"> Fiyat/performans dengesi</label>
+                        <label><input type="radio" name="budget" value="premium"> Profesyonel destek ve &#246;l&#231;eklenme</label>
+                    </fieldset>
+                    <button class="primary-link assessment-submit" type="submit">Rotam&#305; g&#246;ster</button>
+                </form>
+
+                <aside class="assessment-result" id="assessmentResult" aria-live="polite">
+                    <p class="eyebrow">Sonu&#231;</p>
+                    <h2>&#304;lk &#246;nerini burada g&#246;receksin</h2>
+                    <p>Testi tamamlad&#305;&#287;&#305;nda sana uygun kategori, ilk aksiyon ve ana sayfadaki filtre linki burada belirecek.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <h4>KOB&#304; Rotas&#305;</h4>
+                <p>K&#252;&#231;&#252;k i&#351;letmeler i&#231;in sade teknoloji karar rehberi.</p>
+            </div>
+            <div>
+                <h4>Sayfalar</h4>
+                <p><a href="rehberler.html">Rehberler</a></p>
+                <p><a href="hakkinda.html">Hakk&#305;nda</a></p>
+            </div>
+            <div>
+                <h4>Not</h4>
+                <p>Baz&#305; ba&#287;lant&#305;lar affiliate olabilir; karar &#246;ncesi resmi fiyatlar&#305; kontrol edin.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assessment.js" defer></script>
+</body>
+</html>
