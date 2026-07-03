@@ -26,28 +26,37 @@ function getStoredLead() {
 }
 
 if (leadForm) {
-    leadForm.addEventListener('submit', (event) => {
+    leadForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const formData = new FormData(leadForm);
         const payload = Object.fromEntries(formData.entries());
         payload.createdAt = new Date().toISOString();
         localStorage.setItem('kobirotasiLead', JSON.stringify(payload));
+
+        if (leadForm.dataset.netlify === 'true' && window.location.hostname.includes('netlify.app')) {
+            await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            });
+        }
+
         window.location.href = 'tesekkur.html';
     });
 }
 
 if (leadSummary) {
     const data = getStoredLead();
-    leadSummary.textContent = data.email ? buildLeadSummary(data) : 'Henüz kayıtlı analiz bulunamadı. İhtiyaç analizi formunu doldurarak başlayabilirsin.';
+    leadSummary.textContent = data.email ? buildLeadSummary(data) : 'Henuz kayitli analiz bulunamadi. Ihtiyac analizi formunu doldurarak baslayabilirsin.';
 }
 
 if (copyLeadSummary && leadSummary) {
     copyLeadSummary.addEventListener('click', async () => {
         try {
             await navigator.clipboard.writeText(leadSummary.textContent);
-            if (copyStatus) copyStatus.textContent = 'Özet kopyalandı.';
+            if (copyStatus) copyStatus.textContent = 'Ozet kopyalandi.';
         } catch (error) {
-            if (copyStatus) copyStatus.textContent = 'Kopyalama desteklenmedi; metni seçerek kopyalayabilirsin.';
+            if (copyStatus) copyStatus.textContent = 'Kopyalama desteklenmedi; metni secerek kopyalayabilirsin.';
         }
     });
 }

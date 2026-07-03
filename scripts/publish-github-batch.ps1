@@ -47,6 +47,7 @@ $files = @(
     "CONTENT-SEO-PLAN.md",
     "CONVERSION-QA-PLAYBOOK.md",
     "NEXT-GROWTH-PLAN.md",
+    "FORM-DOMAIN-SETUP.md",
     ".agents/README.md",
     ".agents/00-main-orchestrator.md",
     ".agents/01-roadmap-planner.md",
